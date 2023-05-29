@@ -1,38 +1,39 @@
 "use strict";
 
-// FUNZIONE PER CELLA SINGOLA
-function createSquareElement(){
-    let square = document.createElement('div');
-
-    square.classList.add('square');
-    return square
-}
-
-const play_button = document.getElementById('play_btn');
-
-let clickCounter = 0;
-
-// FUNZIONE PLAY BUTTON
-play_button.addEventListener("click", function(){
-
+// FUNZIONE PER CREARE GRIGLIA
+function createNewGame(){
     const grid = document.getElementById('grid');
 
-    clickCounter++;
-    
-    if(clickCounter === 1){
+    // SVUOTARE GRIGLIA
+    grid.innerHTML = '';
 
-        // CICLO FOR PER CREARE GRIGLIA
-        for (let i = 0; i < 100; i++){
+    // RICHIAMO FUNZIONE PER CREARE CELLE
+    createCells();
+}
 
-            let square = createSquareElement();
-            square.innerText = i + 1;
+// FUNZIONE PER CREARE CELLE
+function createCells(){
 
-            square.addEventListener('click',function(){
-                this.classList.toggle('clicked');
-                console.log(this);            
-            })
+    for (let i = 0; i < 100; i++){
 
-            grid.append(square);
-        }
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.innerText = i + 1;
+
+        square.addEventListener('click',function(){
+            this.classList.add('clicked');
+            console.log(this);            
+        })
+
+        grid.append(square);
     }
+}
+
+
+const button = document.getElementById('play_btn')
+
+// FUNZIONE PLAY BUTTON
+button.addEventListener("click", function(){
+
+    createNewGame();
 })
