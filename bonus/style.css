@@ -67,7 +67,3 @@ header{
 .square.clicked{
     background-color: lightskyblue;
 }
-
-.square.bomb-finded{
-    background-color: rgb(181, 27, 27);
-}
