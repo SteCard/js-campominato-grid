@@ -30,8 +30,8 @@ header{
 #grid{
     display: flex;
     flex-wrap: wrap;
-    width: 1000px;
-    height: 1000px;
+    width: 500px;
+    height: 500px;
 }
 
 .square{
